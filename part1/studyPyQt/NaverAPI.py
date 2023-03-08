@@ -7,7 +7,7 @@ import json     # 결과는 json으로
 class NaverApi:
     # 생성자
     def __init__(self) -> None:
-        print(f'[{datetime.datetime.now()}]Naver API 생성')
+        print('Naver API 생성')
 
 
     def get_request_url(self, url):
@@ -32,7 +32,7 @@ class NaverApi:
     def get_naver_search(self, node, search, start, display):
         base_url = 'https://openapi.naver.com/v1/search'
         node_url = f'/{node}.json'
-        params = f'?query={quote(search)}&start={start}&display={display}'
+        params = f'?query={quote(search)}&start{start}&display{display}'
 
         url = base_url + node_url + params
         retData = self.get_request_url(url)
@@ -42,3 +42,13 @@ class NaverApi:
         else:
             return json.loads(retData)
 
+    # json 데이터 -> list 변환
+    def get_post_data(self,post,outputs):
+        title = post['title']
+        description = post['description']
+        originallink = [originallink]
+        link = post['link']
+
+        # Tue, 07 Mar 2023 17:04:00 +0900 문자열이 날아들어걸 날짜형으로 변경
+        pData = datetime.datetime.strptime(post['pubData'], '%a, %d, %b, %Y, %H:%H:%S 0900')
+        pubData = pData.strftime('%Y-%m-%d %H:%M:%S')

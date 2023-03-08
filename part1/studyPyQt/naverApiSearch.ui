@@ -30,7 +30,7 @@
   </property>
   <property name="font">
    <font>
-    <family>돋움</family>
+    <family>나눔고딕</family>
    </font>
   </property>
   <property name="windowTitle">
@@ -99,7 +99,7 @@
    </property>
    <layout class="QVBoxLayout" name="resultLayout">
     <item>
-     <widget class="QListView" name="lsvResult"/>
+     <widget class="QTableWidget" name="tblResult"/>
     </item>
    </layout>
   </widget>
