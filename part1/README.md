@@ -4,7 +4,7 @@
 ## Python PyQt5 학습
 - PyQt 복습
 - QtDesigner 학습
-- Naver API 뉴스검색
+- Naver API 뉴스검색 앱만들기
 <!--  html 주석
 ![네이버 뉴스앱](https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/news_naver.png)
 -->
