@@ -18,7 +18,7 @@
   - Python 3.11.2
   - Naver OpenAPI사용
   - PyQt5 / Qt Designer
-  - Urllib 이미지 다운로드 기술 습득
+  - urllib.request 이미지다운로드 사용
 
 <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/naver_movie.png" width = "780"/>
 
