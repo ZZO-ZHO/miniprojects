@@ -32,7 +32,7 @@ class NaverApi:
     def get_naver_search(self, node, search, start, display):
         base_url = 'https://openapi.naver.com/v1/search'
         node_url = f'/{node}.json'
-        params = f'?query={quote(search)}&start{start}&display{display}'
+        params = f'?query={quote(search)}&start={start}&display={display}'
 
         url = base_url + node_url + params
         retData = self.get_request_url(url)

@@ -11,7 +11,7 @@ class qtApp(QWidget):
 
     def __init__(self):
         super().__init__()
-        uic.loadUi('./studyPyQt/naverApiSearch.ui', self)
+        uic.loadUi('./studyPyQt/naverApiMovie.ui', self)
         self.setWindowIcon(QIcon('./studyPyQt/newspaper.png'))
         # 검색 버튼 클릭 시그널 / 슬롯함수
         self.btnSearch.clicked.connect(self.btnSearchClicked) 
@@ -41,10 +41,11 @@ class qtApp(QWidget):
             node = 'movie'  # movie로 변경하면 영화검색
             display = 100  # 검색결과 몇개 출력할건지
 
-            result = api.get_naver_search(node, search, 5, display)
-            # print(result)
+            result = api.get_naver_search(node, search, 1, display)
+            #print(result)
             # 리스트뷰에 출력가능
             items = result['items']
+            # print(len(items))
             self.makeTable(items)
     
     # 테이블 위젯에 데이터 표시
@@ -52,14 +53,13 @@ class qtApp(QWidget):
         self.tblResult.setSelectionMode(QAbstractItemView.SingleSelection)  # 단일선택만 하도록
         self.tblResult.setColumnCount(7)
         self.tblResult.setRowCount(len(items))  # 현재100개 행 생성
-        print(len(items))
         self.tblResult.setHorizontalHeaderLabels(['영화제목', '개봉년도', '감독', '출연진', '평점', '링크', '포스터'])
         self.tblResult.setColumnWidth(0, 150)
-        self.tblResult.setColumnWidth(1, 60)
+        self.tblResult.setColumnWidth(1, 70)
         self.tblResult.setColumnWidth(4, 50)
         # 컬럼 데이터 수정금지
-        self.tblResult.setEditTriggers(QAbstractItemView.NoEditTriggers)
-
+        self.tblResult.setEditTriggers(QAbstractItemView.NoEditTriggers)    # 컬럼수정금지
+        
         for i, post in enumerate(items):    # 0, 영화
             title =  self.replaceHtmlTag(post['title'])
             pubDate = post['pubDate']
@@ -67,6 +67,17 @@ class qtApp(QWidget):
             actor = post['actor']
             userRating = post['userRating']
             link = post['link']
+            img_url = post['image']
+
+            # 포스터 이미지 추가
+            if img_url != '':
+                data = urlopen(img_url).read()  # 2진 데이터 - 네이버 영화에있는 이미지 다운, 덱스트형태의 데이터
+                image = QImage()
+                image.loadFromData(data)
+                # QTableWidget 이미지를 그냥 넣을수없음 QLabel() 집어넣은뒤 QLabel -> QlabelWideget
+                imgLable = QLabel()
+                imgLable.setPixmap(QPixmap(image))
+
             # image = QImage(Request.get(post['image'], stream = True))
             # imgData = urlopen(post['image']).read()
             # image = QPixmap()
@@ -83,6 +94,12 @@ class qtApp(QWidget):
             self.tblResult.setItem(i, 3, QTableWidgetItem(actor))
             self.tblResult.setItem(i, 4, QTableWidgetItem(userRating))
             self.tblResult.setItem(i, 5, QTableWidgetItem(link))
+            self.tblResult.setItem(i, 6, QTableWidgetItem(img_url))
+
+            if img_url != '':
+                self.tblResult.setCellWidget(i,6,imgLable)
+                self.tblResult.setRowHeight(i,110)
+            
             # self.tblResult.setCellWidget(1,6,imgLabel)
 
     def replaceHtmlTag(self, sentence) -> str:

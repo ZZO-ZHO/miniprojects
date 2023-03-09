@@ -15,6 +15,9 @@
 -->
 <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/news_naver.png" width = "780"/>
 
+- Naver API 영화검색 앱만들기
+  - 사용기술 동일
+  
 ## DB연동 GUI 개발 학습
 
 ## 미니프로젝트 실습
