@@ -71,7 +71,11 @@
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txtSearch"/>
+       <widget class="QLineEdit" name="txtSearch">
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+       </widget>
        <widget class="QPushButton" name="btnSearch">
         <property name="maximumSize">
          <size>

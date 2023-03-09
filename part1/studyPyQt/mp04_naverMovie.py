@@ -12,7 +12,7 @@ class qtApp(QWidget):
     def __init__(self):
         super().__init__()
         uic.loadUi('./studyPyQt/naverApiMovie.ui', self)
-        self.setWindowIcon(QIcon('./studyPyQt/newspaper.png'))
+        self.setWindowIcon(QIcon('./studyPyQt/movie.png'))
         # 검색 버튼 클릭 시그널 / 슬롯함수
         self.btnSearch.clicked.connect(self.btnSearchClicked) 
         # 텍스트박스 입력후 엔터치면 처리
@@ -62,9 +62,11 @@ class qtApp(QWidget):
         
         for i, post in enumerate(items):    # 0, 영화
             title =  self.replaceHtmlTag(post['title'])
+            subtitle = post['subtitle']
+            title = f'{title} ({subtitle})'
             pubDate = post['pubDate']
-            director = post['director']
-            actor = post['actor']
+            director = post['director'].replace('|',',')[:-1]
+            actor = post['actor'].replace('|',',')[:-1]
             userRating = post['userRating']
             link = post['link']
             img_url = post['image']
@@ -77,6 +79,11 @@ class qtApp(QWidget):
                 # QTableWidget 이미지를 그냥 넣을수없음 QLabel() 집어넣은뒤 QLabel -> QlabelWideget
                 imgLable = QLabel()
                 imgLable.setPixmap(QPixmap(image))
+
+                # data를 이미지로 저장가능!
+                # f = open(f'./studyPyQt/temp/image_{i+1}.png', mode='wb')
+                # f.write(data)
+                # f.close()
 
             # image = QImage(Request.get(post['image'], stream = True))
             # imgData = urlopen(post['image']).read()
@@ -99,7 +106,8 @@ class qtApp(QWidget):
             if img_url != '':
                 self.tblResult.setCellWidget(i,6,imgLable)
                 self.tblResult.setRowHeight(i,110)
-            
+            else:
+                self.tblResult.setItem(i, 6, QTableWidgetItem('--- NO Paster ! ---'))
             # self.tblResult.setCellWidget(1,6,imgLabel)
 
     def replaceHtmlTag(self, sentence) -> str:

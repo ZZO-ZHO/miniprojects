@@ -41,6 +41,7 @@ class Ui_Form(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.txtSearch = QtWidgets.QLineEdit(self.splitter)
+        self.txtSearch.setCursor(QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.txtSearch.setObjectName("txtSearch")
         self.btnSearch = QtWidgets.QPushButton(self.splitter)
         self.btnSearch.setMaximumSize(QtCore.QSize(90, 16777215))
