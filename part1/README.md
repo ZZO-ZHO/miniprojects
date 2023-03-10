@@ -23,6 +23,16 @@
 <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/naver_movie.png" width = "780"/>
 
 ## DB연동 GUI 개발 학습
+- 주소록 앱 만들기
+  - Python 3.11.2
+  - MySQL 8.0
+  - pymysql 모듈 사용
+  - PyQt5 / Qt Desinger
+
+  ![주소록앱1](https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/addrbook1.png)
+
+  ![주소록앱2](https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/addrbook2.png)
+
 
 ## 미니프로젝트 실습
 
