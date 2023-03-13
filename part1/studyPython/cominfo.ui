@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>390</width>
+    <height>250</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>390</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>390</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>나눔고딕</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>내 컴퓨터 정보</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>10</y>
+     <width>371</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>컴퓨터 정보</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>CPU (속도)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>코어</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCPU">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>17</y>
+      <width>400</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>400</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>500</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>CPU (속도)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>83</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>디스크</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCore">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>37</y>
+      <width>400</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>400</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>400</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>코어</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDisk">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>80</y>
+      <width>400</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>400</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>400</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>디스크</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMemory">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>60</y>
+      <width>400</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>400</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>400</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>메모리</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>63</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>메모리</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>290</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>371</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>네르워크 정보</string>
+   </property>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>내부 IP</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>외부 IP</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblInnerNet">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>17</y>
+      <width>400</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>400</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>500</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>내부아이피</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblExtraNet">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>37</y>
+      <width>400</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>400</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>400</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>외부아이피</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblNetStat">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>60</y>
+      <width>400</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>400</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>400</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>전송상태</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>63</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight: bold;</string>
+    </property>
+    <property name="text">
+     <string>전송상태</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="btnRefresh">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>220</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>새로고침</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
