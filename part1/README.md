@@ -46,6 +46,13 @@
   - PyQt  
 ![컴퓨터정보 출력](https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/cominfo.png)
 
+- TTS(Text To Speech)
+  - gtts 모듈
+
+- 암호해제 프로그램
+  - intertools, zipfile 기본모듈
+
+
 ## 미니프로젝트 실습
 
 
