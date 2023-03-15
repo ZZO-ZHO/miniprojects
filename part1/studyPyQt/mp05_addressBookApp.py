@@ -156,6 +156,8 @@ class qtApp(QMainWindow):
             self.tblAddress.setItem(i, 4, QTableWidgetItem(address))
 
         self.stbCurrent.showMessage(f'전체 주소록 : {len(rows)} 개')
+
+        
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = qtApp()
