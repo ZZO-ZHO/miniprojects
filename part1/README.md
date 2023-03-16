@@ -54,6 +54,7 @@
 
 - 스레드 사용법
  -  GUI와 처리시간이 긴 로직을 실행하면 반드시 스레드 사용
+![스레드와 노스레드 비교](https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/thread.png)
 
 - 이메일 보내기앱
  - 
