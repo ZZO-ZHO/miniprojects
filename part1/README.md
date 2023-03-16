@@ -56,9 +56,11 @@
  -  GUI와 처리시간이 긴 로직을 실행하면 반드시 스레드 사용
 ![스레드와 노스레드 비교](https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/thread.png)
 
-- 이메일 보내기앱
- - 
+- 이메일 보내기앱, 대량 메일 전송
+
+- PyGame 
 
 ## 미니프로젝트 실습
+- 테스트 앱 만들기
 
-
+[팀리포지토리](https://github.com/PKNU-IOT3/bustop_pyqt_practice)
