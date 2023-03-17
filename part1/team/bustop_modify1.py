@@ -11,20 +11,21 @@ class qtApp(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('C:/Source/zzo/busstop_modify.ui', self)
-        #self.setWindowIcon(QIcon('./test/bustopimage.png'))
+        # self.setWindowIcon(QIcon('bustopimage.png'))
         self.setWindowTitle('BusStop v0.1')
+        self.date = QDate.currentDate()
+        self.datetime = QDateTime.currentDateTime()
         self.initDB()
-
-        self.timer = QTimer(self)
-        self.timer.start(1)
-        self.timer.timeout.connect(self.initDB)
-
         # 해당 버스 클릭 확인위함
         self.flag1,self.flag2,self.flag3=0,0,0
         
         #클릭 시 배경 버튼 색 변경하기 위함
-        self.buttonclick='background-color:rgb(100,100,255);font: "나눔고딕";' #클릭
-        self.buttonrelease='background-color:rgb(255,255,255);font: "나눔고딕";' #해제
+        self.buttonclick='background-color:rgb(100,100,255);font: 9pt "나눔고딕";' #클릭
+        self.buttonrelease='background-color:rgb(255,255,255);font: 9pt "나눔고딕";' #해제
+
+        self.timer = QTimer(self)
+        self.timer.start(1)
+        self.timer.timeout.connect(self.initDB)
         
         # 버튼시그널
         self.busPlus.clicked.connect(self.busPlusClicked)
@@ -36,62 +37,11 @@ class qtApp(QMainWindow):
         #초기화면 버스선택 x --> released로 클릭 불가능하게 설정
         self.btnreleased()
 
-    
-    def resizeEvent(self, event) -> None:
-        win_width=self.frameGeometry().width()
-        #win_height=self.frameGeometry().height()
 
-        if win_width>1000:
-            #self.pushButton.setFont(QFont('나눔고딕', 20))
-            self.lb_title.setFont(QFont('나눔고딕',90))
-            self.lb_subtitle.setFont(QFont('나눔고딕',40))
-            self.btnBus1.setFont(QFont('나눔고딕',60))
-            self.btnBus2.setFont(QFont('나눔고딕',60))
-            self.btnBus3.setFont(QFont('나눔고딕',60))
-            self.lb_bus1.setFont(QFont('나눔고딕',30))
-            self.lb_bus2.setFont(QFont('나눔고딕',30))
-            self.lb_bus3.setFont(QFont('나눔고딕',30))
-            self.busPlus.setFont(QFont('나눔고딕',60))
-            self.busMinus.setFont(QFont('나눔고딕',60))
-            self.bus1Cnt.setFont(QFont('나눔고딕',30))
-            self.bus2Cnt.setFont(QFont('나눔고딕',30))
-            self.bus3Cnt.setFont(QFont('나눔고딕',30))
-        
-        else:
-            self.lb_title.setFont(QFont('나눔고딕',28))
-            self.lb_subtitle.setFont(QFont('나눔고딕',18))
-            self.btnBus1.setFont(QFont('나눔고딕',9))
-            self.btnBus2.setFont(QFont('나눔고딕',9))
-            self.btnBus3.setFont(QFont('나눔고딕',9))
-            self.lb_bus1.setFont(QFont('나눔고딕',9))
-            self.lb_bus2.setFont(QFont('나눔고딕',9))
-            self.lb_bus3.setFont(QFont('나눔고딕',9))
-            self.busPlus.setFont(QFont('나눔고딕',9))
-            self.busMinus.setFont(QFont('나눔고딕',9))
-            self.bus1Cnt.setFont(QFont('나눔고딕',9))
-            self.bus2Cnt.setFont(QFont('나눔고딕',9))
-            self.bus3Cnt.setFont(QFont('나눔고딕',9))
-
-            
     # 탈 버스가 선택된 경우 탑승 대기/취소 버튼 클릭 가능하게
     def btnclicked(self):
         self.busPlus.setEnabled(True)
-
-        if self.flag1 == 1:
-            if self.count1 == 0:
-                self.busMinus.setEnabled(False)
-            else:
-                self.busMinus.setEnabled(True)
-        elif self.flag2 == 1:
-            if self.count2 == 0:
-                self.busMinus.setEnabled(False)
-            else:
-                self.busMinus.setEnabled(True)
-        elif self.flag3 == 1:
-            if self.count3 == 0:
-                self.busMinus.setEnabled(False)
-            else:
-                self.busMinus.setEnabled(True)
+        self.busMinus.setEnabled(True)
 
     # 탈 버스가 선택된 경우 탑승 대기/취소 버튼 클릭 불가능하게
     def btnreleased(self):
@@ -106,11 +56,11 @@ class qtApp(QMainWindow):
             self.btnBus3.setStyleSheet(f'{self.buttonrelease}')
             
             #탑승 대기 / 취소 버튼 활성화
+            self.btnclicked()
+
             self.flag1=1
             self.flag2=0
             self.flag3=0
-
-            self.btnclicked()
 
             #대기 클릭 시 busPlusClicked 함수를 , 취소 클릭 시 busMinusCliced 함수를 실행
             if self.busPlus.isChecked():
@@ -130,12 +80,12 @@ class qtApp(QMainWindow):
             self.btnBus2.setStyleSheet(f'{self.buttonclick}')
             self.btnBus3.setStyleSheet(f'{self.buttonrelease}')
             #탑승 대기 / 취소 버튼 활성화
+            self.btnclicked()
+            
             self.flag1=0
             self.flag2=1
             self.flag3=0
 
-            self.btnclicked()
-            
             if self.busPlus.isChecked():
                 self.busPlusClicked()
             elif self.busMinus.isChecked():
@@ -153,12 +103,11 @@ class qtApp(QMainWindow):
             self.btnBus1.setStyleSheet(f'{self.buttonrelease}')
             self.btnBus2.setStyleSheet(f'{self.buttonrelease}')
             self.btnBus3.setStyleSheet(f'{self.buttonclick}')
+            self.btnclicked()
 
             self.flag1=0
             self.flag2=0
             self.flag3=1
-
-            self.btnclicked()
 
             if self.busPlus.isChecked():
                 self.busPlusClicked()
@@ -185,34 +134,44 @@ class qtApp(QMainWindow):
             self.setting3()
 
     def busMinusClicked(self):
-        if self.flag1 == 1:
-            self.count1 -= 1 
-            self.setting1()
+        if self.flag1==1:
+            if self.count1 == 0:
+                pass
+            else:
+                self.count1 -= 1 
+                self.setting1()
 
-        elif self.flag2 == 1:
-            self.count2 -= 1 
-            self.setting2()
+        elif self.flag2==1:
+            if self.count2 == 0:
+                pass
+            else:
+                self.count2 -= 1 
+                self.setting2()
 
-        elif self.flag3 == 1:
-            self.count3 -= 1 
-            self.setting3()
+        elif self.flag3==1:
+            if self.count3 == 0:
+                pass
+            else:
+                self.count3 -= 1 
+                self.setting3()
             
     def initDB(self):
-        self.date = QDate.currentDate()
-        self.datetime = QDateTime.currentDateTime()
-        
         self.conn = pymysql.connect(host='210.119.12.69', user='root', password='12345', db='bus', charset='utf8')
         cur = self.conn.cursor()
         query='''
         SELECT bus_cnt
           FROM bus_table
          WHERE bus_num = %s
-        '''
+              '''
+
+
+
         self.statusBar().showMessage(self.datetime.toString(Qt.DefaultLocaleLongDate))
         cur.execute(query,('10'))
         data=cur.fetchone()
         self.count1 = int(data[0])
         self.bus1Cnt.setText(str(data[0]))
+      
 
         cur.execute(query,('100-1'))
         data=cur.fetchone()
