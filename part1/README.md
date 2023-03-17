@@ -58,7 +58,10 @@
 
 - 이메일 보내기앱, 대량 메일 전송
 
-- PyGame 
+- 게임만들기 - Dino RUN
+  - PyGame
+
+<img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/dino1.png" width = "780"/>
 
 ## 미니프로젝트 실습
 - 테스트 앱 만들기
