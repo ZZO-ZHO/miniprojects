@@ -66,6 +66,13 @@
 <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/dino2.png" width = "780"/>
 게임화면
 
+- 전국 대학교 위치맵
+  - pandas
+  - folium
+  - PyQT
+    - QWebEnginView 추가
+ <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/folium_gui.png" width = "780"/>   
+
 ## 미니프로젝트 실습
 - 테스트 앱 만들기
 
