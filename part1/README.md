@@ -63,6 +63,9 @@
 
 <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/dino1.png" width = "780"/>
 
+<img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/dino2.png" width = "780"/>
+게임화면
+
 ## 미니프로젝트 실습
 - 테스트 앱 만들기
 
