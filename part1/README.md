@@ -73,6 +73,12 @@
     - QWebEnginView 추가
  <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/folium_gui.png" width = "780"/>   
 
+- 계산기앱
+  - PyQt
+  - 16개의 시그널을 1개의 슬록함수로 처리
+  
+ <img src="https://raw.githubusercontent.com/ZZO-ZHO/miniprojects/main/images/calcu.png" width = "780"/>   
+
 ## 미니프로젝트 실습
 - 테스트 앱 만들기
 
