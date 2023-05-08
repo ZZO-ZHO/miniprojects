@@ -134,7 +134,7 @@ namespace SmartHomeMonitoringApp.Views
                 catch (Exception ex)
                 {
 
-                    UpdateLog($"!!! Error 발생 : {ex.Message}")
+                    UpdateLog($"!!! Error 발생 : {ex.Message}");
                 }
             }
         }
