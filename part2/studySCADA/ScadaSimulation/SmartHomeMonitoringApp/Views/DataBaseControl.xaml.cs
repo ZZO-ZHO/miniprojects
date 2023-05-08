@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using SmartHomeMonitoringApp.Logics;
@@ -105,11 +106,36 @@ namespace SmartHomeMonitoringApp.Views
             var currValue = JsonConvert.DeserializeObject<Dictionary<string, string>>(msg);
             if(currValue != null)
             {
-                Debug.WriteLine(currValue["Home_Id"]);
-                Debug.WriteLine(currValue["Room_Name"]);
-                Debug.WriteLine(currValue["Sensing_DateTime"]);
-                Debug.WriteLine(currValue["Temp"]);
-                Debug.WriteLine(currValue["Humid"]);
+                //Debug.WriteLine(currValue["Home_Id"]);
+                //Debug.WriteLine(currValue["Room_Name"]);
+                //Debug.WriteLine(currValue["Sensing_DateTime"]);
+                //Debug.WriteLine(currValue["Temp"]);
+                //Debug.WriteLine(currValue["Humid"]);
+                try
+                {
+                    using (MySqlConnection conn = new MySqlConnection(Commons.MYSQL_CONNSTRING))
+                    {
+                        if (conn.State == System.Data.ConnectionState.Closed)conn.Open();
+                        string insQuery = "INSERT INTO samrthomesensor...";
+
+                        MySqlCommand cmd = new MySqlCommand(insQuery, conn);
+                        cmd.Parameters.AddWithValue("@Home_Id", currValue["Home_Id"]);
+
+                        if(cmd.ExecuteNonQuery() == 1)
+                        {
+                            UpdateLog(">>> DB Insert 성공");
+                        }
+                        else
+                        {
+                            UpdateLog(">>> DB Insert 실패");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    UpdateLog($"!!! Error 발생 : {ex.Message}")
+                }
             }
         }
     }
