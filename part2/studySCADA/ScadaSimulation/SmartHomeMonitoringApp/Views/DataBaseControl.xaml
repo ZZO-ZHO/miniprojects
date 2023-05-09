@@ -20,7 +20,7 @@
             <Label Content="DataBase Monitoring" Style="{StaticResource MahApps.Styles.Label}"
                    FontSize="25" FontWeight="Bold" VerticalContentAlignment="Center"/>
         </StackPanel>
-        
+
         <Grid Grid.Row="1" Margin="10" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
@@ -53,7 +53,7 @@
             <TextBox Grid.Row="2" Grid.Column="1" x:Name="TxtConnString" Text="MySql 연결 문자열"
                        FontSize="14" VerticalAlignment="Center" Margin="10,0" />
             <ToggleButton Grid.Row="3" Grid.Column="1" x:Name="BtnConnDb" Content="Connect" 
-                          Width="100" HorizontalAlignment="Left" Margin="10,5" IsThreeState="False"
+                          Width="120" HorizontalAlignment="Left" Margin="10,5,0,5" IsThreeState="False"
                           IsChecked="False"
                           Style="{StaticResource MahApps.Styles.ToggleButton.Flat}" Click="BtnConnDb_Click"/>
             <TextBox Grid.Row="4" Grid.Column="1" x:Name="TxtLog" Margin="10,5"
